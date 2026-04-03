@@ -58,12 +58,13 @@ export default function About() {
               <div className="relative rounded-2xl overflow-hidden dark:bg-[#161b22] bg-gray-100 border dark:border-white/5 border-black/5 aspect-square flex items-center justify-center">
                 {/* Placeholder avatar */}
                 <div className="text-center">
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-br from-accent to-teal-600 flex items-center justify-center mx-auto mb-4 shadow-2xl shadow-accent/20">
-                    <span className="font-display font-bold text-5xl text-white">D</span>
-                  </div>
-                  <p className="font-mono text-xs dark:text-gray-500 text-gray-400">
-                    📸 Photo Coming Soon
-                  </p>
+                  <div className="relative rounded-2xl overflow-hidden dark:bg-[#161b22] bg-gray-100 border dark:border-white/5 border-black/5 aspect-square flex items-center justify-center">
+                      <img
+                        public="/mypic.jpg"
+                        alt="Dheniell Dela Cruz"
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
+                    </div>
                 </div>
 
                 {/* Corner decorations */}
