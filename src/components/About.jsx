@@ -2,7 +2,6 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { HiDownload } from 'react-icons/hi'
 import { FiCode, FiZap, FiLayers } from 'react-icons/fi'
-import profilePic from '../assets/photo.jpg'
 
 const stats = [
   { value: '2+', label: 'Years Experience' },
