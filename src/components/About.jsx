@@ -6,7 +6,7 @@ import photo from '../assets/photo.jpg'
 
 const stats = [
   { value: '2+', label: 'Years Experience' },
-  { value: '20+', label: 'Projects Built' },
+  { value: '6+', label: 'Projects Built' },
   { value: '100%', label: 'Passion for Code' },
 ]
 
