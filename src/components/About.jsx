@@ -60,7 +60,7 @@ export default function About() {
                 <div className="text-center">
                   <div className="relative rounded-2xl overflow-hidden dark:bg-[#161b22] bg-gray-100 border dark:border-white/5 border-black/5 aspect-square flex items-center justify-center">
                       <img
-                        src="assets/photo.jpg"
+                        src="/photo.jpg"
                         alt="Dheniell Dela Cruz"
                         className="w-full h-full object-cover rounded-2xl"
                       />
