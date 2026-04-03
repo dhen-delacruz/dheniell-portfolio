@@ -183,7 +183,7 @@ export default function Contact() {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="John Doe"
+                    placeholder="Full Name"
                     className={`w-full px-4 py-3 rounded-xl font-body text-sm
                                dark:bg-[#161b22] bg-white dark:text-white text-gray-900
                                border transition-all duration-200 outline-none
@@ -204,7 +204,7 @@ export default function Contact() {
                     name="email"
                     value={form.email}
                     onChange={handleChange}
-                    placeholder="john@example.com"
+                    placeholder="Email Address"
                     className={`w-full px-4 py-3 rounded-xl font-body text-sm
                                dark:bg-[#161b22] bg-white dark:text-white text-gray-900
                                border transition-all duration-200 outline-none
@@ -225,7 +225,7 @@ export default function Contact() {
                     value={form.message}
                     onChange={handleChange}
                     rows={5}
-                    placeholder="Tell me about your project..."
+                    placeholder="How Can I Help You"
                     className={`w-full px-4 py-3 rounded-xl font-body text-sm resize-none
                                dark:bg-[#161b22] bg-white dark:text-white text-gray-900
                                border transition-all duration-200 outline-none
