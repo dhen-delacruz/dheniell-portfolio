@@ -6,7 +6,7 @@ import photo from '../assets/photo.jpg'
 
 const stats = [
   { value: '2+', label: 'Years Experience' },
-  { value: '6+', label: 'Projects Built' },
+  { value: '6', label: 'Projects Built' },
   { value: '100%', label: 'Passion for Code' },
 ]
 
@@ -84,7 +84,7 @@ export default function About() {
                   transition={{ delay: 0.3 + i * 0.1 }}
                   className="text-center"
                 >
-                  <div className="font-display font-bold text-2xl text-accent">6+</div>
+                  <div className="font-display font-bold text-2xl text-accent">{s.value}</div>
                   <div className="font-body text-xs dark:text-gray-500 text-gray-400">{s.label}</div>
                 </motion.div>
               ))}
