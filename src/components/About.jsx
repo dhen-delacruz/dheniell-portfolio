@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { HiDownload } from 'react-icons/hi'
 import { FiCode, FiZap, FiLayers } from 'react-icons/fi'
+import photo from '../assets/photo.jpg'
 
 const stats = [
   { value: '2+', label: 'Years Experience' },
@@ -60,7 +61,7 @@ export default function About() {
                 <div className="text-center">
                   <div className="relative rounded-2xl overflow-hidden dark:bg-[#161b22] bg-gray-100 border dark:border-white/5 border-black/5 aspect-square flex items-center justify-center">
                       <img
-                        src="/photo.jpg"
+                        src={photo}
                         alt="Dheniell Dela Cruz"
                         className="w-full h-full object-cover rounded-2xl"
                       />
