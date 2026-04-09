@@ -260,7 +260,7 @@ export default function About() {
             ) : (
               <div className="h-[65vh] overflow-hidden rounded-3xl border border-white/10 bg-[#091118]">
                 <iframe
-                  src="/DHENIELL-DELA-CRUZ.pdf"
+                  src="/resume.pdf"
                   title="Resume PDF"
                   className="h-full w-full"
                 />
@@ -276,8 +276,8 @@ export default function About() {
                 Close
               </button>
               <a
-                href="/DHENIELL-DELA-CRUZ.pdf"
-                download="DHENIELL-DELA-CRUZ.pdf"
+                href="/resume.pdf"
+                download="Dheniell_Dela_Cruz_Resume.pdf"
                 className="btn-primary"
               >
                 Download PDF
