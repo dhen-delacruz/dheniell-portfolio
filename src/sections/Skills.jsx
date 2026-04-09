@@ -47,12 +47,12 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* Skills Grid - Horizontal Layout */}
-        <div className="flex flex-wrap gap-12">
+        {/* Skills Grid - Vertical Layout */}
+        <div className="space-y-12">
         {sortedCategories.map((category) => {
           const items = groupedSkills[category]
           return (
-            <div key={category} className="flex-1 min-w-[250px]">
+            <div key={category} className="w-full">
               
               {/* Category Title */}
               <h3 className={`text-lg mb-4 font-bold ${categoryColors[category]}`}>
