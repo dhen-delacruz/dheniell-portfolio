@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { HiDownload } from 'react-icons/hi'
@@ -17,6 +18,7 @@ const highlights = [
 
 export default function About() {
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true })
+  const [showResume, setShowResume] = useState(false)
 
   return (
     <section
@@ -135,14 +137,14 @@ export default function About() {
               transition={{ delay: 0.7 }}
               className="pt-4 flex gap-4"
             >
-              <a
-                href="/resume.pdf"
-                download="Dheniell_Dela_Cruz_Resume.pdf"
+              <button
+                type="button"
+                onClick={() => setShowResume(true)}
                 className="btn-primary gap-2"
               >
                 <HiDownload size={18} />
-                Download Resume
-              </a>
+                View Resume
+              </button>
               <a
                 href="mailto:dheniell@email.com"
                 className="btn-outline gap-2"
@@ -153,6 +155,66 @@ export default function About() {
           </motion.div>
         </div>
       </div>
+
+      {showResume && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+          <div className="relative w-full max-w-3xl rounded-3xl border border-white/10 bg-[#0f1720] p-8 shadow-2xl">
+            <button
+              type="button"
+              onClick={() => setShowResume(false)}
+              className="absolute right-4 top-4 text-gray-400 hover:text-white"
+            >
+              ✕
+            </button>
+            <div className="space-y-6">
+              <div>
+                <span className="section-label block mb-3">Resume</span>
+                <h3 className="text-3xl font-bold text-white">Dheniell Dela Cruz</h3>
+                <p className="text-sm text-gray-400">UI/UX Designer & Web Developer</p>
+              </div>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="space-y-3 rounded-2xl bg-white/5 p-5">
+                  <h4 className="font-semibold text-white">Summary</h4>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Passionate web developer specializing in responsive UI, modern frontend architecture, and clean, maintainable code. Experienced with React, Vite, TailwindCSS, and deployment workflows.
+                  </p>
+                </div>
+                <div className="space-y-3 rounded-2xl bg-white/5 p-5">
+                  <h4 className="font-semibold text-white">Contact</h4>
+                  <p className="text-sm text-gray-300">Email: dheinell@email.com</p>
+                  <p className="text-sm text-gray-300">Location: Philippines</p>
+                </div>
+              </div>
+              <div className="space-y-4 rounded-2xl bg-white/5 p-6">
+                <h4 className="font-semibold text-white">Key Skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">React</span>
+                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">TailwindCSS</span>
+                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">JavaScript</span>
+                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">Vite</span>
+                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">UI/UX</span>
+                </div>
+              </div>
+              <div className="flex flex-wrap gap-4 justify-end">
+                <button
+                  type="button"
+                  onClick={() => setShowResume(false)}
+                  className="btn-outline"
+                >
+                  Close
+                </button>
+                <a
+                  href="/resume.pdf"
+                  download="Dheniell_Dela_Cruz_Resume.pdf"
+                  className="btn-primary"
+                >
+                  Download PDF
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
