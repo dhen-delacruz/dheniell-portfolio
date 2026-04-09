@@ -47,8 +47,8 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* Skills Grid - Vertical Layout */}
-        <div className="space-y-12">
+        {/* Skills Grid - Category Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
         {sortedCategories.map((category) => {
           const items = groupedSkills[category]
           return (
@@ -59,7 +59,7 @@ export default function Skills() {
                 {category}
               </h3>
 
-              {/* Skills Grid */}
+              {/* Skills List */}
               <div className="space-y-3">
                 {items.map((skill) => (
                   <motion.div
