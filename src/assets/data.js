@@ -72,6 +72,9 @@ export const skills = [
   { name: 'GitHub', icon: '🐙', level: 82, category: 'Tools' },
   { name: 'Vercel', icon: '▲', level: 78, category: 'Deploy' },
   { name: 'Node.js', icon: '🟩', level: 70, category: 'Backend' },
+  { name: 'Adobe XD', icon: '🎨', level: 75, category: 'Tools' },
+  { name: 'Figma', icon: '🎨', level: 80, category: 'Tools' },
+  { name: 'Microsoft Word', icon: '📄', level: 85, category: 'Tools' },
 ]
 
 export const navLinks = [

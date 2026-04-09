@@ -65,17 +65,6 @@ export default function Skills() {
               <span className={`font-mono text-xs px-2 py-0.5 rounded-full ${categoryColors[skill.category]}`}>
                 {skill.category}
               </span>
-
-              {/* Progress bar */}
-              <div className="mt-3 h-1 rounded-full dark:bg-white/5 bg-black/5 overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={inView ? { width: `${skill.level}%` } : {}}
-                  transition={{ duration: 0.8, delay: 0.3 + i * 0.05, ease: 'easeOut' }}
-                  className="h-full bg-gradient-to-r from-accent to-teal-400 rounded-full"
-                />
-              </div>
-              <div className="font-mono text-xs dark:text-gray-500 text-gray-400 mt-1">{skill.level}%</div>
             </motion.div>
           ))}
         </div>
