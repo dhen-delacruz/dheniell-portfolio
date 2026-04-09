@@ -66,15 +66,16 @@ export const skills = [
   { name: 'CSS3', icon: '🎨', level: 90, category: 'Frontend' },
   { name: 'JavaScript', icon: '⚡', level: 88, category: 'Frontend' },
   { name: 'React', icon: '⚛️', level: 85, category: 'Frontend' },
-  { name: 'Vite', icon: '🚀', level: 82, category: 'Tools' },
   { name: 'TailwindCSS', icon: '💨', level: 88, category: 'Frontend' },
+  { name: 'Node.js', icon: '🟩', level: 70, category: 'Backend' },
+  { name: 'Vite', icon: '🚀', level: 82, category: 'Tools' },
   { name: 'Git', icon: '🌿', level: 80, category: 'Tools' },
   { name: 'GitHub', icon: '🐙', level: 82, category: 'Tools' },
-  { name: 'Vercel', icon: '▲', level: 78, category: 'Deploy' },
-  { name: 'Node.js', icon: '🟩', level: 70, category: 'Backend' },
   { name: 'Adobe XD', icon: '🎨', level: 75, category: 'Tools' },
   { name: 'Figma', icon: '🎨', level: 80, category: 'Tools' },
   { name: 'Microsoft Word', icon: '📄', level: 85, category: 'Tools' },
+  { name: 'Vercel', icon: '▲', level: 78, category: 'Deploy' },
+  
 ]
 
 export const navLinks = [
