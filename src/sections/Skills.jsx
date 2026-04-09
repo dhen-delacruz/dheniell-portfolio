@@ -47,11 +47,12 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* Skills Grid */}
+        {/* Skills Grid - Horizontal Layout */}
+        <div className="flex flex-wrap gap-12">
         {sortedCategories.map((category) => {
           const items = groupedSkills[category]
           return (
-            <div key={category} className="mb-10">
+            <div key={category} className="flex-1 min-w-[250px]">
               
               {/* Category Title */}
               <h3 className={`text-lg mb-4 font-bold ${categoryColors[category]}`}>
@@ -59,7 +60,7 @@ export default function Skills() {
               </h3>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {items.map((skill) => (
                   <motion.div
                     key={skill.name}
@@ -79,6 +80,7 @@ export default function Skills() {
             </div>
           )
         })}
+        </div>
 
         {/* Bottom note */}
         <motion.p
