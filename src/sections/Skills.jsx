@@ -39,12 +39,10 @@ export default function Skills() {
 
         {/* Skills Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          {skills.map((skill, i) => (
             <motion.div
               key={skill.name}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.06 }}
               whileHover={{ y: -6, scale: 1.03 }}
               className="group relative rounded-2xl p-5 text-center
                          dark:bg-[#161b22] bg-white border dark:border-white/5 border-black/5
@@ -61,12 +59,7 @@ export default function Skills() {
                 {skill.name}
               </div>
 
-              {/* Category badge */}
-              <span className={`font-mono text-xs px-2 py-0.5 rounded-full ${categoryColors[skill.category]}`}>
-                {skill.category}
-              </span>
             </motion.div>
-          ))}
         </div>
 
         {/* Bottom note */}
