@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { HiDownload } from 'react-icons/hi'
 import { FiCode, FiZap, FiLayers } from 'react-icons/fi'
+import { projects } from '../assets/data'
 
 const stats = [
   { value: '2+', label: 'Years Experience' },
@@ -246,14 +247,12 @@ export default function About() {
                 <div>
                   <h4 className="font-semibold text-white mb-3">Projects</h4>
                   <div className="space-y-4 text-gray-300">
-                    <div>
-                      <p className="font-semibold text-white">ShopEase E-Commerce</p>
-                      <p className="text-sm text-gray-400">A full-featured e-commerce platform with cart management, product filtering, and secure checkout built with React and Vite.</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-white">TaskFlow Dashboard</p>
-                      <p className="text-sm text-gray-400">A productivity dashboard featuring drag-and-drop Kanban boards, task analytics, and team collaboration tools.</p>
-                    </div>
+                    {projects.map((project) => (
+                      <div key={project.id}>
+                        <p className="font-semibold text-white">{project.title}</p>
+                        <p className="text-sm text-gray-400">{project.description}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
