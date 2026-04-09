@@ -12,15 +12,11 @@ const categoryColors = {
 export default function Skills() {
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true })
 
-  const categoryOrder = ['Deploy', 'Frontend', 'Backend', 'Tools']
+  const categories = ['Deploy', 'Frontend', 'Backend', 'Tools']
 
-  const groupedSkills = skills.reduce((acc, skill) => {
-  if (!acc[skill.category]) acc[skill.category] = []
-  acc[skill.category].push(skill)
-  return acc
-}, {})
-
-  const sortedCategories = categoryOrder.filter(cat => groupedSkills[cat])
+  const orderedSkills = categories
+    .flatMap(category => skills.filter(skill => skill.category === category))
+    .concat(skills.filter(skill => !categories.includes(skill.category)))
 
   return (
     <section
@@ -47,39 +43,26 @@ export default function Skills() {
           </p>
         </motion.div>
 
-        {/* Skills Grid - Category Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-10">
-        {sortedCategories.map((category) => {
-          const items = groupedSkills[category]
-          return (
-            <div key={category} className="w-full">
-              
-              {/* Category Title */}
-              <h3 className={`text-lg mb-4 font-bold ${categoryColors[category]}`}>
-                {category}
-              </h3>
-
-              {/* Skills List */}
-              <div className="space-y-3">
-                {items.map((skill) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={inView ? { opacity: 1, scale: 1 } : {}}
-                    whileHover={{ y: -6, scale: 1.03 }}
-                    className="group relative rounded-2xl p-5 text-center
-                               dark:bg-[#161b22] bg-white border dark:border-white/5 border-black/5
-                               hover:border-accent/40 dark:hover:bg-[#1c2128] hover:bg-gray-50
-                               transition-all duration-300 cursor-default"
-                  >
-                    <div className="text-4xl mb-3">{skill.icon}</div>
-                    <div className="font-bold text-sm">{skill.name}</div>
-                  </motion.div>
-                ))}
+        {/* Skills Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-5 gap-6">
+          {orderedSkills.map((skill) => (
+            <motion.div
+              key={skill.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.4 }}
+              whileHover={{ y: -6, scale: 1.03 }}
+              className="group relative rounded-3xl p-6 text-center
+                         dark:bg-[#161b22] bg-white border dark:border-white/10 border-black/5
+                         hover:border-accent/40 dark:hover:bg-[#1c2128] hover:bg-gray-50
+                         transition-all duration-300 cursor-default flex flex-col items-center justify-center gap-3"
+            >
+              <div className="text-5xl">{skill.icon}</div>
+              <div className="font-semibold text-sm text-gray-300 dark:text-white">
+                {skill.name}
               </div>
-            </div>
-          )
-        })}
+            </motion.div>
+          ))}
         </div>
 
         {/* Bottom note */}
