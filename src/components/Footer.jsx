@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Link } from 'react-scroll'
 import { FiGithub, FiLinkedin, FiMail, FiHeart } from 'react-icons/fi'
 import { navLinks } from '../assets/data'
 
@@ -29,14 +28,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link
-                    to={link.to}
-                    smooth
-                    duration={600}
+                  <button
+                    type="button"
                     className="cursor-pointer font-body text-sm dark:text-gray-400 text-gray-500 hover:text-accent transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-scroll'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiMoon, HiSun, HiMenuAlt3, HiX } from 'react-icons/hi'
 import { navLinks } from '../assets/data'
@@ -29,7 +28,11 @@ export default function Navbar({ isDark, setIsDark }) {
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <Link to="home" smooth duration={600} className="cursor-pointer">
+          <button
+            type="button"
+            onClick={() => setActive('home')}
+            className="cursor-pointer"
+          >
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2"
@@ -41,25 +44,22 @@ export default function Navbar({ isDark, setIsDark }) {
                 Dheniell
               </span>
             </motion.div>
-          </Link>
+          </button>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <Link
+              <button
                 key={link.to}
-                to={link.to}
-                smooth
-                duration={600}
-                spy
-                onSetActive={() => setActive(link.to)}
+                type="button"
+                onClick={() => setActive(link.to)}
                 className="cursor-pointer relative px-4 py-2 font-body font-medium text-sm transition-colors duration-200 dark:text-gray-300 text-gray-600 hover:text-accent dark:hover:text-accent group"
               >
                 {link.label}
                 <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-accent rounded-full transition-all duration-300 ${
                   active === link.to ? 'w-4' : 'w-0 group-hover:w-4'
                 }`} />
-              </Link>
+              </button>
             ))}
           </div>
 
@@ -76,15 +76,17 @@ export default function Navbar({ isDark, setIsDark }) {
             </motion.button>
 
             {/* Hire Me btn - desktop */}
-            <Link to="contact" smooth duration={600} className="hidden md:block cursor-pointer">
+            <div className="hidden md:block cursor-pointer">
               <motion.button
+                type="button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => setActive('contact')}
                 className="btn-primary text-xs px-5 py-2"
               >
                 Hire Me
               </motion.button>
-            </Link>
+            </div>
 
             {/* Mobile menu toggle */}
             <button
@@ -116,15 +118,16 @@ export default function Navbar({ isDark, setIsDark }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.07 }}
                 >
-                  <Link
-                    to={link.to}
-                    smooth
-                    duration={600}
-                    onClick={() => setMenuOpen(false)}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setMenuOpen(false)
+                      setActive(link.to)
+                    }}
                     className="cursor-pointer font-display font-bold text-3xl dark:text-white text-gray-900 hover:text-accent dark:hover:text-accent transition-colors"
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 </motion.div>
               ))}
             </div>
