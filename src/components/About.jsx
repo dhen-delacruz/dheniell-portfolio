@@ -246,11 +246,16 @@ export default function About() {
 
                 <div>
                   <h4 className="font-semibold text-white mb-3">Projects</h4>
-                  <div className="space-y-4 text-gray-300">
+                  <div className="flex flex-col gap-4 text-gray-300">
                     {projects.map((project) => (
-                      <div key={project.id}>
-                        <p className="font-semibold text-white">{project.title}</p>
-                        <p className="text-sm text-gray-400">{project.description}</p>
+                      <div
+                        key={project.id}
+                        className="rounded-3xl bg-white/5 p-4 border border-white/10"
+                      >
+                        <p className="font-semibold text-white mb-1">{project.title}</p>
+                        <p className="text-sm text-gray-400 leading-relaxed">
+                          {project.description}
+                        </p>
                       </div>
                     ))}
                   </div>
