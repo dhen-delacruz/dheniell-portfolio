@@ -7,6 +7,7 @@ import { projects } from '../assets/data'
 export default function Projects() {
   const [ref, inView] = useInView({ threshold: 0.05, triggerOnce: true })
   const [hovered, setHovered] = useState(null)
+  const [selectedProject, setSelectedProject] = useState(null)
 
   return (
     <section
@@ -31,15 +32,6 @@ export default function Projects() {
               Things I've <span className="gradient-text">Built</span>
             </h2>
           </div>
-          <a
-            href="https://github.com/dheniell"
-            target="_blank"
-            rel="noreferrer"
-            className="btn-outline self-start md:self-auto text-sm"
-          >
-            <FiGithub size={16} />
-            View All on GitHub
-          </a>
         </motion.div>
 
         {/* Grid */}
@@ -52,6 +44,7 @@ export default function Projects() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               onHoverStart={() => setHovered(project.id)}
               onHoverEnd={() => setHovered(null)}
+              onClick={() => setSelectedProject(project)}
               className="group relative rounded-2xl overflow-hidden dark:bg-[#0d1117] bg-gray-50
                          border dark:border-white/5 border-black/5 hover:border-accent/40 transition-all duration-300
                          hover:shadow-[0_0_40px_rgba(0,198,167,0.1)] cursor-pointer"
@@ -75,31 +68,6 @@ export default function Projects() {
                   {project.emoji}
                 </motion.div>
 
-                {/* Hover overlay */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={hovered === project.id ? { opacity: 1 } : { opacity: 0 }}
-                  className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center gap-4"
-                >
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={e => e.stopPropagation()}
-                    className="flex items-center gap-2 px-4 py-2 bg-white text-gray-900 rounded-full font-body font-semibold text-sm hover:bg-accent hover:text-white transition-colors"
-                  >
-                    <FiGithub size={14} /> Code
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={e => e.stopPropagation()}
-                    className="flex items-center gap-2 px-4 py-2 bg-accent text-white rounded-full font-body font-semibold text-sm hover:bg-accent-dark transition-colors"
-                  >
-                    <FiExternalLink size={14} /> Live
-                  </a>
-                </motion.div>
               </div>
 
               {/* Content */}
@@ -127,6 +95,39 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Project Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
+          <div className="relative w-full max-w-2xl rounded-3xl border border-white/10 bg-[#0d1117] p-8 shadow-2xl">
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute right-4 top-4 text-gray-400 hover:text-white"
+            >
+              ✕
+            </button>
+            <div className="mb-6">
+              <div className="text-6xl mb-4">{selectedProject.emoji}</div>
+              <h3 className="font-display text-2xl font-bold text-white mb-3">
+                {selectedProject.title}
+              </h3>
+              <p className="font-body text-sm text-gray-300 leading-relaxed">
+                {selectedProject.description}
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {selectedProject.tech.map((t) => (
+                <span
+                  key={t}
+                  className="font-mono text-xs px-3 py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
