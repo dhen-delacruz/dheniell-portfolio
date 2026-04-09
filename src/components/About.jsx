@@ -19,6 +19,7 @@ const highlights = [
 export default function About() {
   const [ref, inView] = useInView({ threshold: 0.15, triggerOnce: true })
   const [showResume, setShowResume] = useState(false)
+  const [resumeTab, setResumeTab] = useState('digital')
 
   return (
     <section
@@ -139,7 +140,10 @@ export default function About() {
             >
               <button
                 type="button"
-                onClick={() => setShowResume(true)}
+                onClick={() => {
+                  setShowResume(true)
+                  setResumeTab('digital')
+                }}
                 className="btn-primary gap-2"
               >
                 <HiDownload size={18} />
@@ -166,37 +170,118 @@ export default function About() {
             >
               ✕
             </button>
-            <div className="space-y-6">
-              <div>
-                <span className="section-label block mb-3">Resume</span>
-                <h3 className="text-3xl font-bold text-white">Dheniell Dela Cruz</h3>
-                <p className="text-sm text-gray-400">UI/UX Designer & Web Developer</p>
-              </div>
 
+            <div className="mb-6 flex gap-2 rounded-full bg-white/5 p-1">
+              <button
+                type="button"
+                onClick={() => setResumeTab('digital')}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${resumeTab === 'digital' ? 'bg-accent text-black' : 'text-gray-300 hover:text-white'}`}
+              >
+                Digital
+              </button>
+              <button
+                type="button"
+                onClick={() => setResumeTab('pdf')}
+                className={`rounded-full px-4 py-2 text-sm font-semibold transition ${resumeTab === 'pdf' ? 'bg-white text-black' : 'text-gray-300 hover:text-white'}`}
+              >
+                PDF
+              </button>
+            </div>
+
+            {resumeTab === 'digital' ? (
+              <div className="space-y-6">
+                <div>
+                  <span className="section-label block mb-3">Resume</span>
+                  <h3 className="text-3xl font-bold text-white">Dheniell Dela Cruz</h3>
+                  <p className="text-sm text-gray-400">UI/UX Designer & Web Developer</p>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div className="space-y-3 rounded-3xl bg-white/5 p-6 border border-white/10">
+                    <h4 className="font-semibold text-white">Summary</h4>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      Passionate web developer specializing in responsive UI, modern frontend architecture, and clean, maintainable code. Experienced with React, Vite, TailwindCSS, and deployment workflows.
+                    </p>
+                  </div>
+                  <div className="space-y-3 rounded-3xl bg-white/5 p-6 border border-white/10">
+                    <h4 className="font-semibold text-white">Contact</h4>
+                    <p className="text-sm text-gray-300">Email: dheinell@email.com</p>
+                    <p className="text-sm text-gray-300">Location: Philippines</p>
+                  </div>
+                </div>
+
+                <div className="rounded-3xl bg-white/5 p-6 border border-white/10">
+                  <h4 className="font-semibold text-white mb-4">Skills</h4>
+                  <div className="grid gap-3 md:grid-cols-3">
+                    <div className="space-y-2">
+                      <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Frontend</p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">HTML5</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">CSS3</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">JavaScript</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">React</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Tailwind</span>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Backend</p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Node.js</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Express</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">MySQL</span>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <p className="text-xs uppercase tracking-[0.2em] text-gray-500">Tools</p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Git</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Figma</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Vercel</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-gray-300">Vite</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="font-semibold text-white mb-3">Projects</h4>
+                  <div className="space-y-4 text-gray-300">
+                    <div>
+                      <p className="font-semibold text-white">ShopEase E-Commerce</p>
+                      <p className="text-sm text-gray-400">A full-featured e-commerce platform with cart management, product filtering, and secure checkout built with React and Vite.</p>
+                    </div>
+                    <div>
+                      <p className="font-semibold text-white">TaskFlow Dashboard</p>
+                      <p className="text-sm text-gray-400">A productivity dashboard featuring drag-and-drop Kanban boards, task analytics, and team collaboration tools.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
               <div className="h-[65vh] overflow-hidden rounded-3xl border border-white/10 bg-[#091118]">
                 <iframe
-                  src="/resume.pdf"
+                  src="/DHENIELL-DELA-CRUZ.pdf"
                   title="Resume PDF"
                   className="h-full w-full"
                 />
               </div>
+            )}
 
-              <div className="flex flex-wrap gap-4 justify-end">
-                <button
-                  type="button"
-                  onClick={() => setShowResume(false)}
-                  className="btn-outline"
-                >
-                  Close
-                </button>
-                <a
-                  href="/resume.pdf"
-                  download="Dheniell_Dela_Cruz_Resume.pdf"
-                  className="btn-primary"
-                >
-                  Download PDF
-                </a>
-              </div>
+            <div className="flex flex-wrap gap-4 justify-end mt-6">
+              <button
+                type="button"
+                onClick={() => setShowResume(false)}
+                className="btn-outline"
+              >
+                Close
+              </button>
+              <a
+                href="/DHENIELL-DELA-CRUZ.pdf"
+                download="DHENIELL-DELA-CRUZ.pdf"
+                className="btn-primary"
+              >
+                Download PDF
+              </a>
             </div>
           </div>
         </div>
