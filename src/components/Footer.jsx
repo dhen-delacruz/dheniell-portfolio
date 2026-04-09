@@ -28,12 +28,12 @@ export default function Footer() {
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <button
-                    type="button"
+                  <a
+                    href={`#${link.to}`}
                     className="cursor-pointer font-body text-sm dark:text-gray-400 text-gray-500 hover:text-accent transition-colors"
                   >
                     {link.label}
-                  </button>
+                  </a>
                 </li>
               ))}
             </ul>

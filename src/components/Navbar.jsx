@@ -28,8 +28,8 @@ export default function Navbar({ isDark, setIsDark }) {
       >
         <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
-          <button
-            type="button"
+          <a
+            href="#home"
             onClick={() => setActive('home')}
             className="cursor-pointer"
           >
@@ -44,14 +44,14 @@ export default function Navbar({ isDark, setIsDark }) {
                 Dheniell
               </span>
             </motion.div>
-          </button>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.to}
-                type="button"
+                href={`#${link.to}`}
                 onClick={() => setActive(link.to)}
                 className={`cursor-pointer relative px-4 py-2 font-body font-medium text-sm transition-colors duration-200 group ${
                   active === link.to
@@ -63,7 +63,7 @@ export default function Navbar({ isDark, setIsDark }) {
                 <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-accent rounded-full transition-all duration-300 ${
                   active === link.to ? 'w-4' : 'w-0 group-hover:w-4'
                 }`} />
-              </button>
+              </a>
             ))}
           </div>
 
@@ -80,17 +80,20 @@ export default function Navbar({ isDark, setIsDark }) {
             </motion.button>
 
             {/* Hire Me btn - desktop */}
-            <div className="hidden md:block cursor-pointer">
+            <a
+              href="#contact"
+              onClick={() => setActive('contact')}
+              className="hidden md:block cursor-pointer"
+            >
               <motion.button
                 type="button"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={() => setActive('contact')}
                 className="btn-primary text-xs px-5 py-2"
               >
                 Hire Me
               </motion.button>
-            </div>
+            </a>
 
             {/* Mobile menu toggle */}
             <button
@@ -122,8 +125,8 @@ export default function Navbar({ isDark, setIsDark }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.07 }}
                 >
-                  <button
-                    type="button"
+                  <a
+                    href={`#${link.to}`}
                     onClick={() => {
                       setMenuOpen(false)
                       setActive(link.to)
@@ -135,7 +138,7 @@ export default function Navbar({ isDark, setIsDark }) {
                     }`}
                   >
                     {link.label}
-                  </button>
+                  </a>
                 </motion.div>
               ))}
             </div>
