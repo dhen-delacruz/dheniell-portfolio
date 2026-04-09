@@ -60,7 +60,7 @@ export default function Skills() {
               </h3>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="space-y-3">
                 {items.map((skill) => (
                   <motion.div
                     key={skill.name}
