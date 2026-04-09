@@ -6,7 +6,7 @@ import { FiCode, FiZap, FiLayers } from 'react-icons/fi'
 const stats = [
   { value: '2+', label: 'Years Experience' },
   { value: '6', label: 'Projects Built' },
-  { value: '100%', label: 'Passion for Code' },
+  { value: '100%', label: 'Vibe Coding' },
 ]
 
 const highlights = [
@@ -98,7 +98,7 @@ export default function About() {
             className="space-y-6"
           >
             <p className="font-body text-lg leading-relaxed dark:text-gray-300 text-gray-600">
-              I'm a passionate web developer focused on building{' '}
+              I'm a passionate UI/UX, Web Dev focused on building{' '}
               <span className="text-accent font-medium">fast, modern, and responsive websites</span>{' '}
               using React, Vite, and modern deployment tools like Vercel.
             </p>
