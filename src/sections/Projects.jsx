@@ -34,8 +34,8 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid gap-6">
+        {/* List */}
+        <div className="flex flex-col gap-6 max-w-4xl mx-auto">
           {projects.map((project, i) => (
             <motion.div
               key={project.id}
