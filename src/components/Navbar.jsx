@@ -53,7 +53,11 @@ export default function Navbar({ isDark, setIsDark }) {
                 key={link.to}
                 type="button"
                 onClick={() => setActive(link.to)}
-                className="cursor-pointer relative px-4 py-2 font-body font-medium text-sm transition-colors duration-200 dark:text-gray-300 text-gray-600 hover:text-accent dark:hover:text-accent group"
+                className={`cursor-pointer relative px-4 py-2 font-body font-medium text-sm transition-colors duration-200 group ${
+                  active === link.to
+                    ? 'text-accent dark:text-accent'
+                    : 'dark:text-gray-300 text-gray-600 hover:text-accent dark:hover:text-accent'
+                }`}
               >
                 {link.label}
                 <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-accent rounded-full transition-all duration-300 ${
@@ -124,7 +128,11 @@ export default function Navbar({ isDark, setIsDark }) {
                       setMenuOpen(false)
                       setActive(link.to)
                     }}
-                    className="cursor-pointer font-display font-bold text-3xl dark:text-white text-gray-900 hover:text-accent dark:hover:text-accent transition-colors"
+                    className={`cursor-pointer font-display font-bold text-3xl transition-colors ${
+                      active === link.to
+                        ? 'text-accent dark:text-accent'
+                        : 'dark:text-white text-gray-900 hover:text-accent dark:hover:text-accent'
+                    }`}
                   >
                     {link.label}
                   </button>
