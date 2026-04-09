@@ -158,7 +158,7 @@ export default function About() {
 
       {showResume && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="relative w-full max-w-3xl rounded-3xl border border-white/10 bg-[#0f1720] p-8 shadow-2xl">
+          <div className="relative w-full max-w-4xl rounded-3xl border border-white/10 bg-[#0f1720] p-6 shadow-2xl">
             <button
               type="button"
               onClick={() => setShowResume(false)}
@@ -172,29 +172,15 @@ export default function About() {
                 <h3 className="text-3xl font-bold text-white">Dheniell Dela Cruz</h3>
                 <p className="text-sm text-gray-400">UI/UX Designer & Web Developer</p>
               </div>
-              <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-3 rounded-2xl bg-white/5 p-5">
-                  <h4 className="font-semibold text-white">Summary</h4>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    Passionate web developer specializing in responsive UI, modern frontend architecture, and clean, maintainable code. Experienced with React, Vite, TailwindCSS, and deployment workflows.
-                  </p>
-                </div>
-                <div className="space-y-3 rounded-2xl bg-white/5 p-5">
-                  <h4 className="font-semibold text-white">Contact</h4>
-                  <p className="text-sm text-gray-300">Email: dheinell@email.com</p>
-                  <p className="text-sm text-gray-300">Location: Philippines</p>
-                </div>
+
+              <div className="h-[65vh] overflow-hidden rounded-3xl border border-white/10 bg-[#091118]">
+                <iframe
+                  src="/resume.pdf"
+                  title="Resume PDF"
+                  className="h-full w-full"
+                />
               </div>
-              <div className="space-y-4 rounded-2xl bg-white/5 p-6">
-                <h4 className="font-semibold text-white">Key Skills</h4>
-                <div className="flex flex-wrap gap-2">
-                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">React</span>
-                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">TailwindCSS</span>
-                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">JavaScript</span>
-                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">Vite</span>
-                  <span className="rounded-full bg-accent/15 px-3 py-1 text-xs text-accent">UI/UX</span>
-                </div>
-              </div>
+
               <div className="flex flex-wrap gap-4 justify-end">
                 <button
                   type="button"
